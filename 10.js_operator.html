@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS OPERATOR</title>
+    <script>
+        function showComparismEqual(){
+            var x = 3;
+            var y = '3';
+            document.getElementById("result").innerHTML =
+            "x == y 결과 : " + (x==y) + "  x === y 결과 : " + (x === y) ;
+        }
+
+        function showComparismString(){
+            var x = "abc";
+            var y = "bcd";
+            document.getElementById("result").innerHTML =
+            "abc <= bcd : " + (x <= y);
+        }
+
+        var showTernaryOperator = (a, b) =>{
+            var bigger = (a > b) ? a : b;
+            document.getElementById("result").innerHTML = bigger;
+        }
+    </script>   
+</head>
+<body>
+    <h2>js연산자 예시</h2>
+    <button onclick="showComparismEqual()">비교연산자 결과</button>
+    <button onclick="showComparismString()">비교연산자 결과</button>
+    <button onclick="showTernaryOperator(3, 4)">삼항연산자 결과</button>
+    <p id="result">결과</p>
+</body>
+</html>
