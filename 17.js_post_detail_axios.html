@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS BOOTSTRAP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        async function callBackImp(){
+            try{
+                let myTarget = document.getElementsByClassName("table")[0];
+                const response1 = await axios.get('https://jsonplaceholder.typicode.com/posts');
+                response1.data.forEach(element => {
+                    if(document.getElementById("input").vlaue == element.id){
+                        console.log(element.id);
+                    }
+                    console.log(element.id);
+
+                });
+                console.log(document.getElementById("input").value);
+                
+            }
+            catch(e){
+                console.log(e);
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <a class="navbar-brand" href="/home.html">게시판 서비스</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="/register.html">회원가입 서비스</a></li>
+            <li class="nav-item"><a class="nav-link" href="/post-list.html">글목록 서비스</a></li>
+        </ul>    
+    </nav>
+    
+    <div class="container">
+        <div class="page-header"><h1>게시글 상세 조회</h1></div>
+        <div class="float-end">
+        <div>
+            게시글 id : <input id="input" type="text">
+            <button onclick = "callBackImp()" class="btn btn-primary">조회</button>
+        </div>
+        </div>
+        <table class = "table">
+            <tr>
+                <td>id : </td>
+                <td id = "d_id"></td>
+            </tr>
+            <tr>
+                <td>title : </td>
+                <td id = "d_title"></td>
+            </tr>
+            <tr>
+                <td>contents : </td>
+                <td id = "d_contents"></td>
+            </tr>
+            <tr>
+                <td>author_id : </td>
+                <td id = "d_aid"></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
